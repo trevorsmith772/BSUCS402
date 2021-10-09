@@ -65,6 +65,20 @@ class MainActivity : AppCompatActivity() {
             indeces.removeAt(0)
             kadapter.notifyDataSetChanged()
         }
+        val splitbutton: Button = findViewById(R.id.splitbutton)
+        splitbutton.setOnClickListener {
+            for (i in skoffeeList.size-1 downTo 0) {
+                if (skoffeeList[i]) {
+                    skoffeeList.add(i, false)
+                    var txtstring = koffeeList[i]
+                    var prestring = txtstring
+                    var poststring = txtstring
+                    koffeeList[i] = prestring
+                    koffeeList.add(i, poststring)
+                }
+            }
+            kadapter.notifyDataSetChanged()
+        }
     }
 }
 //5 lines of code for add and delete (each)
